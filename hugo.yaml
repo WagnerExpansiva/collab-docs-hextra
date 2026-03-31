@@ -1,3 +1,5 @@
+title: "Collab.codes Docs"
+
 module:
   imports:
     - path: github.com/imfing/hextra
@@ -5,8 +7,17 @@ module:
 ignoreLogs:
   - "deprecated"    
 
+markup:
+  # allow raw html
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
 params:
-  title: "Collab.codes Docs"
   description: "Official documentation and knowledge base of Collab.codes"
 
   # Theme
@@ -43,18 +54,15 @@ menu:
     - name: Home
       url: "https://www.collab.codes"
       weight: 1
-      params:
-        target: "_self"      
+      target: "_self"
     - name: Docs
       url: "https://docs.collab.codes"
       weight: 2
-      params:
-        target: "_self"      
+      target: "_self"
     - name: Blog
       url: https://blog.collab.codes
       weight: 3
-      params:
-        target: "_self"      
+      target: "_self"      
     - name: Search
       weight: 4
       params:
