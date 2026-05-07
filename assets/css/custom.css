@@ -1,46 +1,160 @@
-/* Customizações de cores para combinar com www.collab.codes */
+/* ───────────────────────────────────────────────
+   Collab.codes Docs — Medium-inspired typography
+   Hextra uses .dark class on <html> (not data-theme)
+   ─────────────────────────────────────────────── */
 
 @layer theme {
   :root {
-    /* Cor primária / accent (usando o azul do seu site) */
-    --primary-hue: 200deg;           /* Azul próximo de #1C91CD */
+    --font-body: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+    --font-ui:   "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    /* Brand accent — drives Hextra's primary color scale */
+    --primary-hue: 200deg;
     --primary-saturation: 75%;
-    --primary-lightness: 50%;
+    --primary-lightness: 45%;
 
-    /* Cores de texto */
-    --text-primary-color: #403f3f;
-    --text-secondary-color: #1C91CD;
+    --text-primary-color: #292929;
+    --text-secondary-color: #555555;
 
-    /* Cores de fundo */
-    --bg-primary-color: #ffffff;
-    --bg-secondary-color: #f9f9f9;
-
-    /* Link e active color */
-    --link-color: #1890FF;
-    --link-hover-color: #40A9FF;
+    --link-color: #1C91CD;
+    --link-hover-color: #0e7ab5;
   }
 
-  [data-theme="dark"] {
-    /* Modo escuro - baseado nas suas variáveis */
-    --text-primary-color: #e6edf3;
-    --text-secondary-color: #56a8d1;
-    --bg-primary-color: #0d1117;
-    --bg-secondary-color: #161b22;
-    --link-color: #0b81ef;
-    --link-hover-color: #3f9fee;
+  /* Hextra adds .dark to <html> */
+  .dark {
+    --primary-hue: 200deg;
+    --primary-saturation: 70%;
+    --primary-lightness: 55%;
+
+    --text-primary-color: #e2e2e3;
+    --text-secondary-color: #9ca3af;
+
+    --link-color: #4db8e8;
+    --link-hover-color: #7dcef0;
   }
 }
 
-/* Ajustes adicionais para melhor harmonia */
+/* ── Global UI font ── */
 body {
-  font-family: var(--font-family-primary, system-ui, sans-serif);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Se quiser forçar mais cores do seu site */
+/* ── Doc article content uses readable serif ── */
+.content,
+article.prose {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-primary-color);
+}
+
+/* Headings stay sans-serif (Inter) for clarity in docs */
+h1, h2, h3, h4, h5, h6,
+.content h1, .content h2, .content h3,
+.content h4, .content h5, .content h6 {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: var(--text-primary-color);
+}
+
+h1 {
+  font-size: clamp(26px, 4vw, 36px);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.6rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Sidebar navigation ── */
+.sidebar,
+nav.sidebar {
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+
+/* ── Links ── */
 a {
   color: var(--link-color);
 }
 
 a:hover {
   color: var(--link-hover-color);
+}
+
+.content a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Blockquote ── */
+.content blockquote {
+  border-left: 3px solid var(--link-color);
+  padding: 0.4rem 1.25rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  color: var(--text-secondary-color);
+}
+
+/* ── Navbar ── */
+.navbar,
+header nav {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.dark .navbar,
+.dark header nav {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+/* ── Breadcrumbs & meta ── */
+.breadcrumb,
+.page-meta {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--text-secondary-color);
+}
+
+/* ── Table of contents ── */
+.toc,
+aside.toc {
+  font-family: var(--font-ui);
+  font-size: 13px;
+}
+
+/* ── Code ── */
+code, kbd, samp {
+  font-size: 0.875em;
+}
+
+/* ── Tags/Labels ── */
+.tag,
+span.tag {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  background: #f2f2f2;
+  color: #555;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.dark .tag,
+.dark span.tag {
+  background: #2d2d2d;
+  color: #9ca3af;
 }

@@ -1,35 +1,86 @@
 title: "Collab.codes Docs"
+baseURL: "https://docs.collab.codes"
 
 module:
   imports:
     - path: github.com/imfing/hextra
-# Suppress deprecation warnings
+
 ignoreLogs:
-  - "deprecated"    
+  - "deprecated"
+
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    contentDir: content/en
+    params:
+      description: "Official documentation and knowledge base of Collab.codes"
+    menu:
+      main:
+        - name: Home
+          url: "https://www.collab.codes"
+          weight: 1
+        - name: Docs
+          url: /docs/
+          weight: 2
+        - name: Blog
+          url: "https://blog.collab.codes"
+          weight: 3
+        - name: Search
+          weight: 4
+          params:
+            type: search
+        - name: GitHub
+          weight: 5
+          url: "https://github.com/collab-codes/collab-docs-hextra"
+          params:
+            icon: github
+  pt:
+    languageName: "Português"
+    weight: 2
+    contentDir: content/pt
+    params:
+      description: "Documentação oficial e base de conhecimento da Collab.codes"
+    menu:
+      main:
+        - name: Início
+          url: "https://www.collab.codes"
+          weight: 1
+        - name: Docs
+          url: /pt/docs/
+          weight: 2
+        - name: Blog
+          url: "https://blog.collab.codes/pt/"
+          weight: 3
+        - name: Busca
+          weight: 4
+          params:
+            type: search
+        - name: GitHub
+          weight: 5
+          url: "https://github.com/collab-codes/collab-docs-hextra"
+          params:
+            icon: github
 
 markup:
-  # allow raw html
   goldmark:
     renderer:
       unsafe: true
-
-  # enable hextra syntax highlight
   highlight:
     noClasses: false
 
 params:
-  description: "Official documentation and knowledge base of Collab.codes"
-
-  # Theme
   theme:
     default: system
     displayToggle: true
 
-  # Hextra settings
   showSearch: true
   showToc: true
   showLastUpdated: true
-  showBreadCrumbs: true  
+  showBreadCrumbs: true
 
   navbar:
     displayTitle: true
@@ -42,38 +93,3 @@ params:
   editURL:
     enable: true
     base: "https://github.com/collab-codes/collab-docs-hextra/edit/main/content"
-
-  nav:
-    - title: Home
-      url: /
-    - title: Blog
-      url: https://blog.collab.codes
-
-menu:
-  main:
-    - name: Home
-      url: "https://www.collab.codes"
-      weight: 1
-      target: "_self"
-    - name: Docs
-      url: "https://docs.collab.codes"
-      weight: 2
-      target: "_self"
-    - name: Blog
-      url: https://blog.collab.codes
-      weight: 3
-      target: "_self"      
-    - name: Search
-      weight: 4
-      params:
-        type: search
-    - name: GitHub
-      weight: 5
-      url: "https://github.com/collab-codes/collab-docs-hextra"
-      params:
-        icon: github
-    - name: Twitter
-      weight: 6
-      url: "https://twitter.com/"
-      params:
-        icon: x-twitter
